@@ -120,11 +120,16 @@ def isFriendWith(column, line, peoples):
 
 def getAdjacencyMatrix(names, peoples):
     print("")
+    i = 0
     for column in names:
         for line in names:
+            i += 1
             if isFriendWith(column, line, peoples) == True:
                 print("1", end = '')
             else: print("0", end = '')
+            if (i != len(names)):
+                print(" ", end = '')
+        i = 0
         print("")
 
 def getShortestPathMatrix(names, peoples, max):
@@ -132,17 +137,22 @@ def getShortestPathMatrix(names, peoples, max):
     global list
     global y
 
+    i = 0
     print("")
     for column in names:
         for line in names:
+            i += 1
             count = searchPath(peoples, column, line)
             if count > max: count = 0
             print(count, end = '')
+            if (i != len(names)):
+                print(" ", end = '')
             all.clear()
             list.clear()
             y = 0
             for people in peoples:
                 people.setVisited(False)
+        i = 0
         print("")
 
 def main():
